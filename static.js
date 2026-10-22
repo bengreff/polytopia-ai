@@ -28,7 +28,7 @@
     const n = cur.states.length;
     cur.k = Math.max(0, Math.min(n - 1, k));
     const g = cur.g;
-    return { ...cur.states[cur.k], legal: [], human: 0,
+    return { ...cur.states[cur.k], legal: [], human: cur.agent || 1,
       watch: { path: cur.path, at: g.base + cur.k, base: g.base, total: g.base + n - 1, viewer: 0, turnStarts: g.turnStarts } };
   }
 
@@ -38,7 +38,10 @@
     if (ep === 'games') { const d = await getJSON('data/games.json'); return { games: d.games, sent: d.featured }; }
     if (ep === 'watch') {
       const g = await getJSON(fileOf(q.get('path')));
-      cur = { path: q.get('path'), g, states: g.states || (g.states = expand(g)), k: 0 };
+      const list = await getJSON('data/games.json');
+      const meta = [...list.featured, ...list.games].find(x => x.path === q.get('path')) || {};
+      // the top bar shows the network's player
+      cur = { path: q.get('path'), g, states: g.states || (g.states = expand(g)), k: 0, agent: meta.agent };
       return stateAt(0);
     }
     if (ep === 'wstep') {
