@@ -1,0 +1,23 @@
+{
+ "title": "A Polytopia bot that learns by playing itself",
+ "summary": "A neural network that plays The Battle of Polytopia in the World Championship format (1v1, Might, Lakes, small map, any of the 12 regular tribes). It first learned from 7,732 human tournament games; since then it improves by self-play, one generation at a time. Every generation is tested against the game's hardest built-in bot, against the previous generation and against generation 0. Watch its games below: the whole map is shown.",
+ "model": "5.9M-parameter transformer over the 196 map tiles; it scores every legal move. Generation 0 is the network trained on the human games. Self-play: PPO on the outcome, with the network's own win estimate as baseline; opponents are itself and earlier generations.",
+ "current": 0,
+ "generations": [
+  {
+   "gen": 0,
+   "crazy": {
+    "games": 200,
+    "wins": 188,
+    "rate": 0.94,
+    "ci": [
+     0.898,
+     0.965
+    ]
+   }
+  }
+ ],
+ "featured": true,
+ "updated": "2026-10-22 18:50 CDT",
+ "disclaimer": "An unofficial research project, not affiliated with or endorsed by Midjiwan AB. The Battle of Polytopia is a trademark of Midjiwan AB. The games were played by the game's own rules code on the owner's computer; this site shows only recorded board states, drawn by its own simple renderer."
+}
