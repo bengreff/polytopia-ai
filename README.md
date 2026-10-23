@@ -8,6 +8,8 @@ automatically after every generation.
 
 Open the site: https://bengreff.github.io/polytopia-ai/
 
+Source code, training pipeline and research log: [github.com/bengreff/polytopia](https://github.com/bengreff/polytopia)
+
 An unofficial research project, not affiliated with or endorsed by Midjiwan AB. The Battle of
 Polytopia is a trademark of Midjiwan AB. No game code or game files are published here: the
 replays are recorded board states, drawn by the site's own simple renderer.
